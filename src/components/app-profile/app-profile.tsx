@@ -7,7 +7,7 @@ import { MatchResults } from '@stencil/router';
   styleUrl: 'app-profile.scss'
 })
 export class AppProfile {
-  
+
   @Prop() match: MatchResults;
 
   render() {
@@ -16,7 +16,7 @@ export class AppProfile {
         <div>
           <p>
             Hello! My name is {this.match.params.name}.
-            My name was passed in through a route param!
+            My name was passed in through a route params!
           </p>
         </div>
       );

@@ -64,8 +64,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppProfileAttributes extends HTMLAttributes {
-      
-        match?: MatchResults
+      match?: MatchResults;
     }
   }
 }
