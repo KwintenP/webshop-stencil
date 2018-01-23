@@ -99,3 +99,63 @@ declare global {
   }
 }
 
+
+import {
+  AboutComponent as AboutWebshop
+} from './containers/about/about';
+
+declare global {
+  interface HTMLAboutWebshopElement extends AboutWebshop, HTMLElement {
+  }
+  var HTMLAboutWebshopElement: {
+    prototype: HTMLAboutWebshopElement;
+    new (): HTMLAboutWebshopElement;
+  };
+  interface HTMLElementTagNameMap {
+    "about-webshop": HTMLAboutWebshopElement;
+  }
+  interface ElementTagNameMap {
+    "about-webshop": HTMLAboutWebshopElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "about-webshop": JSXElements.AboutWebshopAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AboutWebshopAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  ShoppingListOverview as ShoppingListOverview
+} from './containers/shopping-list-overview/shopping-list-overview';
+
+declare global {
+  interface HTMLShoppingListOverviewElement extends ShoppingListOverview, HTMLElement {
+  }
+  var HTMLShoppingListOverviewElement: {
+    prototype: HTMLShoppingListOverviewElement;
+    new (): HTMLShoppingListOverviewElement;
+  };
+  interface HTMLElementTagNameMap {
+    "shopping-list-overview": HTMLShoppingListOverviewElement;
+  }
+  interface ElementTagNameMap {
+    "shopping-list-overview": HTMLShoppingListOverviewElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "shopping-list-overview": JSXElements.ShoppingListOverviewAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ShoppingListOverviewAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
