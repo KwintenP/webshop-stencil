@@ -1,0 +1,84 @@
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'item-filter',
+  styleUrl: './item-filter.scss'
+})
+export class ItemFilterComponent {
+  formValue = {
+    searchTerm: '',
+    priceFrom: '',
+    priceTo: '',
+  };
+
+  updateFormValue(e) {
+    this.formValue[e.target.name] = e.target.value;
+  }
+
+  submit(e) {
+    e.preventDefault();
+    console.log('e', this.formValue);
+  }
+
+  render() {
+    return (
+      <span>
+        <h3>Search for elements</h3>
+        <form onSubmit={(e) => this.submit(e)}>
+          <div class="form-group row">
+            <label htmlFor="searchTerm" class="col-sm- col-form-label">
+              Search term
+            </label>
+            <div class="col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                id="searchTerm"
+                name="searchTerm"
+                value={this.formValue.searchTerm}
+                onInput={(e) => this.updateFormValue(e)}
+                placeholder="Enter a search term"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label htmlfor="priceFrom" class="col-sm- col-form-label">
+              Price from
+            </label>
+            <div class="col-sm-4">
+              <input
+                min="1"
+                max="5000"
+                type="range"
+                name="priceFrom"
+                class="form-control"
+                id="priceFrom"
+                value={this.formValue.priceFrom}
+                onInput={(e) => this.updateFormValue(e)}
+              />
+            </div>
+            <div class="col-sm-2" />
+          </div>
+          <div class="form-group row">
+            <label htmlfor="priceTo" class="col-sm- col-form-label">
+              Price to
+            </label>
+            <div class="col-sm-4">
+              <input
+                min="1"
+                max="5000"
+                type="range"
+                class="form-control"
+                name="priceTo"
+                id="priceTo"
+                value={this.formValue.priceTo}
+                onInput={(e) => this.updateFormValue(e)}
+              />
+            </div>
+            <div class="col-sm-2" />
+          </div>
+        </form>
+      </span>
+    );
+  }
+}
