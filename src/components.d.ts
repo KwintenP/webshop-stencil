@@ -6,65 +6,32 @@
 
 import '@stencil/router';
 
-import {
-  MatchResults,
-} from '@stencil/router';
 
 import {
-  AppHome as AppHome
-} from './components/app-home/app-home';
+  ItemFilterComponent as ItemFilter
+} from './components/item-filter/item-filter';
 
 declare global {
-  interface HTMLAppHomeElement extends AppHome, HTMLElement {
+  interface HTMLItemFilterElement extends ItemFilter, HTMLElement {
   }
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
+  var HTMLItemFilterElement: {
+    prototype: HTMLItemFilterElement;
+    new (): HTMLItemFilterElement;
   };
   interface HTMLElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    "item-filter": HTMLItemFilterElement;
   }
   interface ElementTagNameMap {
-    "app-home": HTMLAppHomeElement;
+    "item-filter": HTMLItemFilterElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "app-home": JSXElements.AppHomeAttributes;
+      "item-filter": JSXElements.ItemFilterAttributes;
     }
   }
   namespace JSXElements {
-    export interface AppHomeAttributes extends HTMLAttributes {
+    export interface ItemFilterAttributes extends HTMLAttributes {
       
-    }
-  }
-}
-
-
-import {
-  AppProfile as AppProfile
-} from './components/app-profile/app-profile';
-
-declare global {
-  interface HTMLAppProfileElement extends AppProfile, HTMLElement {
-  }
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-  interface HTMLElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  interface ElementTagNameMap {
-    "app-profile": HTMLAppProfileElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "app-profile": JSXElements.AppProfileAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface AppProfileAttributes extends HTMLAttributes {
-      match?: MatchResults;
     }
   }
 }
