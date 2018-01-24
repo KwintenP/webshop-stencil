@@ -1,9 +1,9 @@
-import {Component, Listen, Prop} from '@stencil/core';
+import {Component, Listen, Prop, Watch} from '@stencil/core';
 import { Item } from '../../entities/item.entity';
 
 @Component({
   tag: 'item-overview',
-  styles: './item-overview.scss'
+  styleUrl: './item-overview.scss'
 })
 export class ItemOverviewComponent {
   @Prop() items: Item[];
