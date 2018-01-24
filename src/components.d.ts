@@ -6,6 +6,39 @@
 
 import '@stencil/router';
 
+import {
+  Item,
+} from './entities/item.entity';
+
+import {
+  CardComponent as MyCard
+} from './components/card/card';
+
+declare global {
+  interface HTMLMyCardElement extends MyCard, HTMLElement {
+  }
+  var HTMLMyCardElement: {
+    prototype: HTMLMyCardElement;
+    new (): HTMLMyCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    "my-card": HTMLMyCardElement;
+  }
+  interface ElementTagNameMap {
+    "my-card": HTMLMyCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "my-card": JSXElements.MyCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MyCardAttributes extends HTMLAttributes {
+      item?: Item;
+    }
+  }
+}
+
 
 import {
   ItemFilterComponent as ItemFilter
@@ -32,6 +65,36 @@ declare global {
   namespace JSXElements {
     export interface ItemFilterAttributes extends HTMLAttributes {
       
+    }
+  }
+}
+
+
+import {
+  ItemOverviewComponent as ItemOverview
+} from './components/item-overview/item-overview';
+
+declare global {
+  interface HTMLItemOverviewElement extends ItemOverview, HTMLElement {
+  }
+  var HTMLItemOverviewElement: {
+    prototype: HTMLItemOverviewElement;
+    new (): HTMLItemOverviewElement;
+  };
+  interface HTMLElementTagNameMap {
+    "item-overview": HTMLItemOverviewElement;
+  }
+  interface ElementTagNameMap {
+    "item-overview": HTMLItemOverviewElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "item-overview": JSXElements.ItemOverviewAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ItemOverviewAttributes extends HTMLAttributes {
+      items?: Item[];
     }
   }
 }

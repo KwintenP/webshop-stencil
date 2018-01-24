@@ -1,10 +1,12 @@
-import { Component } from '@stencil/core';
+import {Component, Event, EventEmitter} from '@stencil/core';
 
 @Component({
   tag: 'item-filter',
   styleUrl: './item-filter.scss'
 })
 export class ItemFilterComponent {
+  @Event() search: EventEmitter<{searchTerm: string, priceFrom: string, priceTo: string}>;
+
   formValue = {
     searchTerm: '',
     priceFrom: '',
@@ -17,7 +19,7 @@ export class ItemFilterComponent {
 
   submit(e) {
     e.preventDefault();
-    console.log('e', this.formValue);
+    this.search.emit(this.formValue);
   }
 
   render() {
@@ -77,6 +79,7 @@ export class ItemFilterComponent {
             </div>
             <div class="col-sm-2" />
           </div>
+          <button type="submit">Search</button>
         </form>
       </span>
     );

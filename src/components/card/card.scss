@@ -1,0 +1,27 @@
+my-card {
+  margin: 5px 5px;
+
+  .card {
+    height: 450px;
+    width: 16rem;
+
+    .card-title {
+      max-height: 100px;
+      overflow-y: scroll;
+    }
+
+    .card-text {
+      max-height: 120px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      overflow-y: scroll;
+
+      hyphens: auto;
+    }
+
+    .card-img-top {
+      height: 100px;
+      width: 100px;
+    }
+  }
+}

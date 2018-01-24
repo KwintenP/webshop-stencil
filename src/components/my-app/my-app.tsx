@@ -1,11 +1,13 @@
-import { Component } from '@stencil/core';
+import { Component, Listen } from '@stencil/core';
+import { ajax } from 'rxjs/observable/dom/ajax';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   tag: 'my-app',
   styleUrl: 'my-app.scss'
 })
 export class MyApp {
-
   render() {
     return (
       <div>
@@ -15,7 +17,11 @@ export class MyApp {
 
         <main>
           <stencil-router>
-            <stencil-route url="/webshop" component="shopping-list-overview" exact={true} />
+            <stencil-route
+              url="/webshop"
+              component="shopping-list-overview"
+              exact={true}
+            />
             <stencil-route url="/about" component="about-webshop" />
             <stencil-route url="/" exact={true}>
               <stencil-router-redirect url="/webshop" />
