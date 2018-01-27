@@ -1,12 +1,18 @@
-.content {
+.page {
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-direction: column;
 
-  .main {
+  .content {
     display: flex;
-    flex-direction: column;
-    width: 70%;
-    border: 1px solid black;
+    flex-direction: row;
+    height: 100%;
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      border: 1px solid black;
+    }
   }
 }
+

@@ -1,9 +1,9 @@
-import { Component, Listen, State } from '@stencil/core';
-import { Item } from '../../entities/item.entity';
+import {Component, Listen, State} from '@stencil/core';
+import {Item} from '../../entities/item.entity';
 import 'rxjs/add/operator/map';
-import { ajax } from 'rxjs/observable/dom/ajax';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import {ajax} from 'rxjs/observable/dom/ajax';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/scan';
 
 const API_KEY = 'sgkdpvaj88kj4z5m7k9r9rs2';
@@ -12,47 +12,8 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
   ajax({
     method: 'GET',
     url: `http://localhost:8080/api/search?query=${term}&start=${page * 10 +
-      1}&format=json&facet=on&apiKey=${API_KEY}&facet.range=price:[${priceFrom} TO ${priceTo}]`
+    1}&format=json&facet=on&apiKey=${API_KEY}&facet.range=price:[${priceFrom} TO ${priceTo}]`
   });
-
-//
-// class BasketService {
-//   basket$: Observable<Array<Item>>;
-//
-//   private items$ = new Subject<{ type: 'ADD' | 'REMOVE', value: Item, count?: number }>();
-//
-//   constructor() {
-//     this.basket$ = this.items$
-//       .scan<{ type: 'ADD' | 'REMOVE', value: Item, count?: number }, Array<Item>>(
-//         (acc: Array<Item>, curr: { type: 'ADD' | 'REMOVE', value: Item, count?: number }) => {
-//           switch (curr.type) {
-//             case 'ADD':
-//               const foundItem = acc.find(item => item.name === curr.value.name);
-//               if (foundItem) {
-//                 return acc.map(item => item.name === curr.value.name ? {
-//                   ...item,
-//                   count: item.count + curr.count
-//                 } : item)
-//                   .filter(item => item.count > 0);
-//               } else {
-//                 return [...acc, {...curr.value, count: 1}];
-//               }
-//             case 'REMOVE':
-//               return acc.filter(item => item.name !== curr.value.name);
-//           }
-//         }, []);
-//   }
-//
-//   addItem(item, count) {
-//     this.items$.next({type: 'ADD', value: item, count});
-//   }
-//
-//   removeItem(item) {
-//     this.items$.next({type: 'REMOVE', value: item});
-//   }
-// }
-//
-// const basketService = new BasketService();
 
 @Component({
   tag: 'shopping-list-overview',
@@ -91,15 +52,18 @@ export class ShoppingListOverview {
 
   render() {
     return (
-      <div class="content">
-        <div class="main">
-          <item-filter />
-          {this.items}
-          <item-overview items={this.items} />
-        </div>
-        <div class="main">
-          <item-basket />
-          <my-discounts></my-discounts>
+      <div class="page">
+        <item-filter />
+        <div class="content">
+          <div class="main">
+            {this.items}
+            <item-overview items={this.items}/>
+          </div>
+          <div class="main">
+            <item-basket/>
+            <my-discounts/>
+            <basket-overview/>
+          </div>
         </div>
       </div>
     );

@@ -11,6 +11,36 @@ import {
 } from './entities/item.entity';
 
 import {
+  BasketOverviewComponent as BasketOverview
+} from './components/basket-overview/basket-overview';
+
+declare global {
+  interface HTMLBasketOverviewElement extends BasketOverview, HTMLElement {
+  }
+  var HTMLBasketOverviewElement: {
+    prototype: HTMLBasketOverviewElement;
+    new (): HTMLBasketOverviewElement;
+  };
+  interface HTMLElementTagNameMap {
+    "basket-overview": HTMLBasketOverviewElement;
+  }
+  interface ElementTagNameMap {
+    "basket-overview": HTMLBasketOverviewElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "basket-overview": JSXElements.BasketOverviewAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface BasketOverviewAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
   CardComponent as MyCard
 } from './components/card/card';
 
