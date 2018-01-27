@@ -41,6 +41,66 @@ declare global {
 
 
 import {
+  DiscountsComponent as MyDiscounts
+} from './components/discounts/discounts';
+
+declare global {
+  interface HTMLMyDiscountsElement extends MyDiscounts, HTMLElement {
+  }
+  var HTMLMyDiscountsElement: {
+    prototype: HTMLMyDiscountsElement;
+    new (): HTMLMyDiscountsElement;
+  };
+  interface HTMLElementTagNameMap {
+    "my-discounts": HTMLMyDiscountsElement;
+  }
+  interface ElementTagNameMap {
+    "my-discounts": HTMLMyDiscountsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "my-discounts": JSXElements.MyDiscountsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface MyDiscountsAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
+
+
+import {
+  ItemBasketComponent as ItemBasket
+} from './components/item-basket/item-basket';
+
+declare global {
+  interface HTMLItemBasketElement extends ItemBasket, HTMLElement {
+  }
+  var HTMLItemBasketElement: {
+    prototype: HTMLItemBasketElement;
+    new (): HTMLItemBasketElement;
+  };
+  interface HTMLElementTagNameMap {
+    "item-basket": HTMLItemBasketElement;
+  }
+  interface ElementTagNameMap {
+    "item-basket": HTMLItemBasketElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "item-basket": JSXElements.ItemBasketAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ItemBasketAttributes extends HTMLAttributes {
+      items?: Item[];
+    }
+  }
+}
+
+
+import {
   ItemFilterComponent as ItemFilter
 } from './components/item-filter/item-filter';
 

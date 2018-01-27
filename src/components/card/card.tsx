@@ -1,5 +1,8 @@
 import { Component, Event, EventEmitter, Prop } from '@stencil/core';
 import { Item } from '../../entities/item.entity';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/scan';
 
 @Component({
   tag: 'my-card',

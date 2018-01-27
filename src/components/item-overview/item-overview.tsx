@@ -8,11 +8,6 @@ import { Item } from '../../entities/item.entity';
 export class ItemOverviewComponent {
   @Prop() items: Item[];
 
-  @Listen('elementAdd')
-  elementAddTriggered(item: Item) {
-    console.log('item', item);
-  }
-
   render() {
     return (
       <span>
