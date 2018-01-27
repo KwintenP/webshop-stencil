@@ -24,7 +24,6 @@ export class ShoppingListOverview {
   @State() basket;
   @Prop({ context: 'basketService' }) basketService: BasketService;
   @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
-  @Prop({ context: 'test' }) test: Test;
 
   constructor() {
   }
