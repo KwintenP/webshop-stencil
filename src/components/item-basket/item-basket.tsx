@@ -20,7 +20,8 @@ export class ItemBasketComponent {
     return (
       <span>
         <h3>Basket List</h3>
-        {this.items ? (
+        {this.items}
+        {this.items && this.items.length > 0 ? (
           <table class="table">
             <thead>
               <tr>
@@ -31,20 +32,20 @@ export class ItemBasketComponent {
               </tr>
             </thead>
             <tbody>
-              {/*{this.items.map(item => {*/}
-                {/*<tr>*/}
-                  {/*<td>{item.name}</td>*/}
-                  {/*<td>{item.salePrice}</td>*/}
-                  {/*<td>{item.count}</td>*/}
-                  {/*<td>*/}
-                    {/*<i*/}
-                      {/*class="fa fa-trash-o"*/}
-                      {/*aria-hidden="true"*/}
-                      {/*onClick={() => this.removeItemTriggered(item)}*/}
-                    {/*/>*/}
-                  {/*</td>*/}
-                {/*</tr>;*/}
-              {/*})}*/}
+              {this.items.map(item =>
+                <tr>
+                  <td>{item.name}</td>
+                  <td>{item.salePrice}</td>
+                  <td>{item.count}</td>
+                  <td>
+                    <i
+                      class="fa fa-trash-o"
+                      aria-hidden="true"
+                      onClick={() => this.removeItemTriggered(item)}
+                    />
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         ) : null}

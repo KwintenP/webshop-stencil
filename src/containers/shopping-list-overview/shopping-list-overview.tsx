@@ -21,15 +21,23 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
 })
 export class ShoppingListOverview {
   @State() items: Item[] = [];
-  @State() basket;
-  @Prop({ context: 'basketService' }) basketService: BasketService;
-  @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
+  @State() basketItems: Item[];
+  @Prop({context: 'basketService'}) basketService: BasketService;
+  @Prop({context: 'activeRouter'}) activeRouter: ActiveRouter;
 
   constructor() {
   }
 
   componentDidLoad() {
-    this.basketService.basket$.subscribe(console.log);
+    this.basketService.basket$.subscribe(
+      (items) => this.basketItems = items
+    );
+  }
+
+  @Listen('removeItem')
+  removeItem(remove: CustomEvent) {
+    event.stopPropagation();
+    this.basketService.removeItem(event.detail);
   }
 
   @Listen('search')
@@ -53,16 +61,16 @@ export class ShoppingListOverview {
   }
 
   render() {
+    console.log('rendered');
     return (
       <div class="page">
-        <item-filter />
+        <item-filter/>
         <div class="content">
           <div class="main">
-            {this.items}
             <item-overview items={this.items}/>
           </div>
           <div class="main">
-            <item-basket/>
+            <item-basket items={this.basketItems}></item-basket>
             <my-discounts/>
             <basket-overview/>
           </div>
