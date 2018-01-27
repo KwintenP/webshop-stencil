@@ -1,10 +1,10 @@
-import {Component, Listen, State} from '@stencil/core';
+import {Component, Listen, Prop, State} from '@stencil/core';
 import {Item} from '../../entities/item.entity';
 import 'rxjs/add/operator/map';
 import {ajax} from 'rxjs/observable/dom/ajax';
-import {Observable} from 'rxjs/Observable';
-import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/scan';
+import {ActiveRouter} from '@stencil/router';
+import {BasketService} from '../../services/basket.interface';
 
 const API_KEY = 'sgkdpvaj88kj4z5m7k9r9rs2';
 
@@ -22,12 +22,15 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
 export class ShoppingListOverview {
   @State() items: Item[] = [];
   @State() basket;
+  @Prop({ context: 'basketService' }) basketService: BasketService;
+  @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
+  @Prop({ context: 'test' }) test: Test;
 
   constructor() {
-    // basketService.basket$.subscribe(items => {
-    //   console.log('b', items);
-    //   this.basket = items;
-    // });
+  }
+
+  componentDidLoad() {
+    this.basketService.basket$.subscribe(console.log);
   }
 
   @Listen('search')
@@ -47,7 +50,7 @@ export class ShoppingListOverview {
 
   @Listen('elementAdd')
   elementAddTriggered(e: CustomEvent) {
-    // basketService.addItem(e.detail, 1);
+    this.basketService.addItem(e.detail, 1);
   }
 
   render() {

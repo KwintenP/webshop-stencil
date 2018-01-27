@@ -4,7 +4,8 @@ exports.config = {
   ],
   collections: [
     { name: '@stencil/router' }
-  ]
+  ],
+  globalScript: 'src/services/basket.service.ts'
 };
 
 exports.devServer = {
