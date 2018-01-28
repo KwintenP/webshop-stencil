@@ -2,7 +2,7 @@ import {Component, Event, EventEmitter, Prop} from '@stencil/core';
 import {Item} from '../../entities/item.entity';
 
 @Component({
-  tag: 'item-basket',
+  tag: 'demo-item-basket',
   styleUrl: './item-basket.scss'
 })
 export class ItemBasketComponent {

@@ -2,7 +2,7 @@ import {Component, Listen, Prop, Watch} from '@stencil/core';
 import { Item } from '../../entities/item.entity';
 
 @Component({
-  tag: 'item-overview',
+  tag: 'demo-item-overview',
   styleUrl: './item-overview.scss'
 })
 export class ItemOverviewComponent {
@@ -13,7 +13,7 @@ export class ItemOverviewComponent {
       <span>
         <h3>Items found</h3>
         <div class="card-content">
-          {this.items.map(item => <my-card item={item} />)}
+          {this.items.map(item => <demo-card item={item} />)}
         </div>
       </span>
     );

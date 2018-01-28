@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/scan';
 
 @Component({
-  tag: 'my-card',
+  tag: 'demo-card',
   styleUrl: './card.scss'
 })
 export class CardComponent {

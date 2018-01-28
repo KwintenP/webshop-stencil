@@ -95,7 +95,7 @@ declare global {
   }
   namespace JSXElements {
     export interface MyDiscountsAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
@@ -155,7 +155,7 @@ declare global {
   }
   namespace JSXElements {
     export interface ItemFilterAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
@@ -193,7 +193,7 @@ declare global {
 
 import {
   MyApp as MyApp
-} from './components/my-app/my-app';
+} from './containers/my-app/my-app';
 
 declare global {
   interface HTMLMyAppElement extends MyApp, HTMLElement {
@@ -215,7 +215,7 @@ declare global {
   }
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
@@ -245,7 +245,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AboutWebshopAttributes extends HTMLAttributes {
-      
+
     }
   }
 }
@@ -275,7 +275,7 @@ declare global {
   }
   namespace JSXElements {
     export interface ShoppingListOverviewAttributes extends HTMLAttributes {
-      
+
     }
   }
 }

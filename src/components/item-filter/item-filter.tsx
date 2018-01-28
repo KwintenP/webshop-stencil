@@ -1,7 +1,7 @@
 import {Component, Event, EventEmitter, State} from '@stencil/core';
 
 @Component({
-  tag: 'item-filter',
+  tag: 'demo-item-filter',
   styleUrl: './item-filter.scss'
 })
 export class ItemFilterComponent {

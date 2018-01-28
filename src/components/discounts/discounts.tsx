@@ -1,7 +1,7 @@
 import {Component, Event, EventEmitter} from '@stencil/core';
 
 @Component({
-  tag: 'my-discounts',
+  tag: 'demo-discounts',
   styleUrl: './discounts.scss'
 })
 export class DiscountsComponent {

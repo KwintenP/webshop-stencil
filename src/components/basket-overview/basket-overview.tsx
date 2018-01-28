@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Prop} from '@stencil/core';
 
 @Component({
-  tag: 'basket-overview',
+  tag: 'demo-basket-overview',
   styleUrl: 'basket-overview.scss'
 })
 export class BasketOverviewComponent {

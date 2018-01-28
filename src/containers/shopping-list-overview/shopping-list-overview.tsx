@@ -15,7 +15,7 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
   });
 
 @Component({
-  tag: 'shopping-list-overview',
+  tag: 'demo-shopping-list-overview',
   styleUrl: 'shopping-list-overview.component.scss'
 })
 export class ShoppingListOverview {
@@ -96,7 +96,7 @@ export class ShoppingListOverview {
 
   calculatePrice() {
     let basketPrice = this.basketItems.reduce<number>((acc: number, curr) => acc + curr.count * curr.salePrice, 0);
-    if(this.discounts.vatFree) {
+    if (this.discounts.vatFree) {
       basketPrice = basketPrice / 1.21;
     }
     this.totalPrice = (basketPrice - this.discounts.discountCode).toFixed(2);
@@ -110,16 +110,16 @@ export class ShoppingListOverview {
     console.log('rendered');
     return (
       <div class="page">
-        <item-filter/>
+        <demo-item-filter/>
         <div class="content">
           <div class="main">
-            <item-overview items={this.items}/>
+            <demo-item-overview items={this.items}/>
           </div>
           <div class="main">
-            <item-basket items={this.basketItems}></item-basket>
-            <my-discounts/>
-            <basket-overview nrOfElements={this.nrOfElements}
-                             totalPrice={this.totalPrice}/>
+            <demo-item-basket items={this.basketItems}/>
+            <demo-discounts/>
+            <demo-basket-overview nrOfElements={this.nrOfElements}
+                                  totalPrice={this.totalPrice}/>
           </div>
         </div>
       </div>
