@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 
 @Component({
-  tag: 'my-app',
+  tag: 'demo-app',
   styleUrl: 'my-app.scss'
 })
 export class MyApp {
