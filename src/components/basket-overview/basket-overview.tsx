@@ -5,8 +5,8 @@ import {Component, EventEmitter, Prop} from '@stencil/core';
   styleUrl: 'basket-overview.scss'
 })
 export class BasketOverviewComponent {
-  @Prop() nrOfElements: EventEmitter<number>;
-  @Prop() totalPrice: EventEmitter<number>;
+  @Prop() nrOfElements: number;
+  @Prop() totalPrice: number;
 
   render() {
     return (

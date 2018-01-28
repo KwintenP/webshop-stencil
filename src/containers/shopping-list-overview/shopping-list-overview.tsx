@@ -43,18 +43,21 @@ export class ShoppingListOverview {
   removeItem(event: CustomEvent) {
     event.stopPropagation();
     this.basketService.removeItem(event.detail);
+    this.calculations();
   }
 
   @Listen('oneExtra')
   addCountToElement(event: CustomEvent) {
     event.stopPropagation();
     this.basketService.addItem(event.detail, 1);
+    this.calculations();
   }
 
   @Listen('oneLess')
   substractCountFromElement(event: CustomEvent) {
     event.stopPropagation();
     this.basketService.addItem(event.detail, -1);
+    this.calculations();
   }
 
   @Listen('search')
@@ -75,12 +78,15 @@ export class ShoppingListOverview {
   @Listen('elementAdd')
   elementAddTriggered(e: CustomEvent) {
     this.basketService.addItem(e.detail, 1);
+    this.calculations();
   }
 
   @Listen('discountChange')
   discountCodeChange(event: CustomEvent) {
-
-    calculations();
+    this.discounts = event.detail;
+    console.log('event', event);
+    console.log('event', event.detail);
+    this.calculations();
   }
 
   calculations() {
@@ -89,7 +95,11 @@ export class ShoppingListOverview {
   }
 
   calculatePrice() {
-    this.totalPrice = this.basketItems.reduce<number>((acc: number, curr) => acc + curr.count * curr.salePrice, 0);
+    let basketPrice = this.basketItems.reduce<number>((acc: number, curr) => acc + curr.count * curr.salePrice, 0);
+    if(this.discounts.vatFree) {
+      basketPrice = basketPrice / 1.21;
+    }
+    this.totalPrice = basketPrice - this.discounts.discountCode;
   }
 
   calculateNumberOfElements() {

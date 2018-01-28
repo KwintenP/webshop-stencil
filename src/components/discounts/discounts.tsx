@@ -7,10 +7,18 @@ import {Component, Event, EventEmitter} from '@stencil/core';
 export class DiscountsComponent {
   @Event() discountChange: EventEmitter<any>;
 
-  discountValues = {
+  discountValues = {
     vatFree: false,
-    discountCode: 0,
+    discountCode: 0
   };
+
+  updateFormValue(e) {
+    if (e.target.type && e.target.type === 'checkbox') {
+      this.discountValues = {...this.discountValues, [e.target.name]: e.target.checked};
+    } else {
+      this.discountValues = {...this.discountValues, [e.target.name]: e.target.value};
+    }
+  }
 
   discountChangeTriggered(event) {
     event.preventDefault();
@@ -20,10 +28,16 @@ export class DiscountsComponent {
   render() {
     return (
       <span>
-        <form onSubmit={(event) => this.discountChangeTriggered(event)}>
+        <form onSubmit={event => this.discountChangeTriggered(event)}>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" checked={this.discountValues.vatFree} class="form-check-input"/>
+              <input
+                type="checkbox"
+                checked={this.discountValues.vatFree}
+                class="form-check-input"
+                name="vatFree"
+                onChange={e => this.updateFormValue(e)}
+              />
               VAT free
             </label>
           </div>
@@ -34,8 +48,10 @@ export class DiscountsComponent {
             <input
               type=" text"
               class=" form-control"
-              id=" discountCode"
+              id="discountCode"
+              name="discountCode"
               value={this.discountValues.discountCode}
+              onInput={e => this.updateFormValue(e)}
               placeholder=" Discount code"
             />
           </div>
