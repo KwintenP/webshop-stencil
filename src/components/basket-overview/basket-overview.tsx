@@ -1,10 +1,13 @@
-import { Component } from '@stencil/core';
+import {Component, EventEmitter, Prop} from '@stencil/core';
 
 @Component({
   tag: 'basket-overview',
   styleUrl: 'basket-overview.scss'
 })
 export class BasketOverviewComponent {
+  @Prop() nrOfElements: EventEmitter<number>;
+  @Prop() totalPrice: EventEmitter<number>;
+
   render() {
     return (
       <span>
@@ -20,6 +23,7 @@ export class BasketOverviewComponent {
                 type="text"
                 class="form-control-plaintext"
                 id="nrOfElements"
+                value={this.nrOfElements}
                 placeholder="Number of elements"
               />
             </div>
@@ -34,6 +38,7 @@ export class BasketOverviewComponent {
                 type="text"
                 class="form-control-plaintext"
                 id="totalPrice"
+                value={this.totalPrice}
                 placeholder="Total price"
               />
             </div>

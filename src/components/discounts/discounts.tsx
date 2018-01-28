@@ -1,22 +1,32 @@
-import { Component } from '@stencil/core';
+import {Component, Event, EventEmitter} from '@stencil/core';
 
 @Component({
   tag: 'my-discounts',
   styleUrl: './discounts.scss'
 })
 export class DiscountsComponent {
+  @Event() discountChange: EventEmitter<any>;
+
+  discountValues = {
+    vatFree: false,
+    discountCode: 0,
+  };
+
+  discountChangeTriggered(event) {
+    event.preventDefault();
+    this.discountChange.emit(this.discountValues);
+  }
+
   render() {
     return (
       <span>
-        <form>
+        <form onSubmit={(event) => this.discountChangeTriggered(event)}>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" />
+              <input type="checkbox" checked={this.discountValues.vatFree} class="form-check-input"/>
               VAT free
             </label>
           </div>
-        </form>
-        <form class=" form-inline">
           <div class=" form-group mx-sm-3">
             <label htmlfor="discountCode" class=" sr-only">
               Discount code
@@ -25,10 +35,11 @@ export class DiscountsComponent {
               type=" text"
               class=" form-control"
               id=" discountCode"
+              value={this.discountValues.discountCode}
               placeholder=" Discount code"
             />
           </div>
-          <button type=" submit" class=" btn btn-primary">
+          <button type="submit" class=" btn btn-primary">
             Update
           </button>
         </form>

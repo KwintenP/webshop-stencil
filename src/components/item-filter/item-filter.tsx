@@ -18,7 +18,7 @@ export class ItemFilterComponent {
     this.formValue = {...this.formValue, [e.target.name]: e.target.value};
   }
 
-  submit(e) {
+    submit(e) {
     e.preventDefault();
     this.search.emit(this.formValue);
   }

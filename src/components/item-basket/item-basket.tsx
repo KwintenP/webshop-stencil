@@ -16,6 +16,14 @@ export class ItemBasketComponent {
     this.removeItem.emit(item);
   }
 
+  oneExtraTriggered(item: Item) {
+    this.oneExtra.emit(item);
+  }
+
+  oneLessTriggered(item: Item) {
+    this.oneLess.emit(item);
+  }
+
   render() {
     return (
       <span>
@@ -43,6 +51,16 @@ export class ItemBasketComponent {
                       aria-hidden="true"
                       onClick={() => this.removeItemTriggered(item)}
                     />
+                    <i
+                      class="fa fa-plus"
+                      aria-hidden="true"
+                      onClick={() => this.oneExtraTriggered(item)}
+                    />
+                    <i
+                    class="fa fa-minus"
+                    aria-hidden="true"
+                    onClick={() => this.oneLessTriggered(item)}
+                  />
                   </td>
                 </tr>
               )}

@@ -3,7 +3,6 @@ import {Item} from '../../entities/item.entity';
 import 'rxjs/add/operator/map';
 import {ajax} from 'rxjs/observable/dom/ajax';
 import 'rxjs/add/operator/scan';
-import {ActiveRouter} from '@stencil/router';
 import {BasketService} from '../../services/basket.interface';
 
 const API_KEY = 'sgkdpvaj88kj4z5m7k9r9rs2';
@@ -11,7 +10,7 @@ const API_KEY = 'sgkdpvaj88kj4z5m7k9r9rs2';
 export const callWalmartApi = (term, page, priceFrom, priceTo) =>
   ajax({
     method: 'GET',
-    url: `http://localhost:8080/api/search?query=${term}&start=${page * 10 +
+    url: `http://localhost:8081/api/search?query=${term}&start=${page * 10 +
     1}&format=json&facet=on&apiKey=${API_KEY}&facet.range=price:[${priceFrom} TO ${priceTo}]`
   });
 
@@ -22,8 +21,14 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
 export class ShoppingListOverview {
   @State() items: Item[] = [];
   @State() basketItems: Item[];
+  @State() totalPrice: number;
+  @State() nrOfElements: number;
   @Prop({context: 'basketService'}) basketService: BasketService;
-  @Prop({context: 'activeRouter'}) activeRouter: ActiveRouter;
+
+  discounts = {
+    vatFree: false,
+    discountCode: 0,
+  };
 
   constructor() {
   }
@@ -35,9 +40,21 @@ export class ShoppingListOverview {
   }
 
   @Listen('removeItem')
-  removeItem(remove: CustomEvent) {
+  removeItem(event: CustomEvent) {
     event.stopPropagation();
     this.basketService.removeItem(event.detail);
+  }
+
+  @Listen('oneExtra')
+  addCountToElement(event: CustomEvent) {
+    event.stopPropagation();
+    this.basketService.addItem(event.detail, 1);
+  }
+
+  @Listen('oneLess')
+  substractCountFromElement(event: CustomEvent) {
+    event.stopPropagation();
+    this.basketService.addItem(event.detail, -1);
   }
 
   @Listen('search')
@@ -60,6 +77,25 @@ export class ShoppingListOverview {
     this.basketService.addItem(e.detail, 1);
   }
 
+  @Listen('discountChange')
+  discountCodeChange(event: CustomEvent) {
+
+    calculations();
+  }
+
+  calculations() {
+    this.calculatePrice();
+    this.calculateNumberOfElements();
+  }
+
+  calculatePrice() {
+    this.totalPrice = this.basketItems.reduce<number>((acc: number, curr) => acc + curr.count * curr.salePrice, 0);
+  }
+
+  calculateNumberOfElements() {
+    this.nrOfElements = this.basketItems.reduce<number>((acc: number, curr) => acc + curr.count, 0);
+  }
+
   render() {
     console.log('rendered');
     return (
@@ -72,7 +108,8 @@ export class ShoppingListOverview {
           <div class="main">
             <item-basket items={this.basketItems}></item-basket>
             <my-discounts/>
-            <basket-overview/>
+            <basket-overview nrOfElements={this.nrOfElements}
+                             totalPrice={this.totalPrice}/>
           </div>
         </div>
       </div>
