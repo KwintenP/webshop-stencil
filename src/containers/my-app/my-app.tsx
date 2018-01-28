@@ -18,14 +18,10 @@ export class MyApp {
         <main>
           <stencil-router>
             <stencil-route
-              url="/webshop"
-              component="shopping-list-overview"
+              url="/"
+              component="demo-shopping-list-overview"
               exact={true}
             />
-            <stencil-route url="/about" component="about-webshop" />
-            <stencil-route url="/" exact={true}>
-              <stencil-router-redirect url="/webshop" />
-            </stencil-route>
           </stencil-router>
         </main>
       </div>

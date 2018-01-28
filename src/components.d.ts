@@ -11,29 +11,29 @@ import {
 } from './entities/item.entity';
 
 import {
-  BasketOverviewComponent as BasketOverview
+  BasketOverviewComponent as DemoBasketOverview
 } from './components/basket-overview/basket-overview';
 
 declare global {
-  interface HTMLBasketOverviewElement extends BasketOverview, HTMLElement {
+  interface HTMLDemoBasketOverviewElement extends DemoBasketOverview, HTMLElement {
   }
-  var HTMLBasketOverviewElement: {
-    prototype: HTMLBasketOverviewElement;
-    new (): HTMLBasketOverviewElement;
+  var HTMLDemoBasketOverviewElement: {
+    prototype: HTMLDemoBasketOverviewElement;
+    new (): HTMLDemoBasketOverviewElement;
   };
   interface HTMLElementTagNameMap {
-    "basket-overview": HTMLBasketOverviewElement;
+    "demo-basket-overview": HTMLDemoBasketOverviewElement;
   }
   interface ElementTagNameMap {
-    "basket-overview": HTMLBasketOverviewElement;
+    "demo-basket-overview": HTMLDemoBasketOverviewElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "basket-overview": JSXElements.BasketOverviewAttributes;
+      "demo-basket-overview": JSXElements.DemoBasketOverviewAttributes;
     }
   }
   namespace JSXElements {
-    export interface BasketOverviewAttributes extends HTMLAttributes {
+    export interface DemoBasketOverviewAttributes extends HTMLAttributes {
       nrOfElements?: number;
       totalPrice?: string;
     }
@@ -42,29 +42,29 @@ declare global {
 
 
 import {
-  CardComponent as MyCard
+  CardComponent as DemoCard
 } from './components/card/card';
 
 declare global {
-  interface HTMLMyCardElement extends MyCard, HTMLElement {
+  interface HTMLDemoCardElement extends DemoCard, HTMLElement {
   }
-  var HTMLMyCardElement: {
-    prototype: HTMLMyCardElement;
-    new (): HTMLMyCardElement;
+  var HTMLDemoCardElement: {
+    prototype: HTMLDemoCardElement;
+    new (): HTMLDemoCardElement;
   };
   interface HTMLElementTagNameMap {
-    "my-card": HTMLMyCardElement;
+    "demo-card": HTMLDemoCardElement;
   }
   interface ElementTagNameMap {
-    "my-card": HTMLMyCardElement;
+    "demo-card": HTMLDemoCardElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-card": JSXElements.MyCardAttributes;
+      "demo-card": JSXElements.DemoCardAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyCardAttributes extends HTMLAttributes {
+    export interface DemoCardAttributes extends HTMLAttributes {
       item?: Item;
     }
   }
@@ -72,59 +72,59 @@ declare global {
 
 
 import {
-  DiscountsComponent as MyDiscounts
+  DiscountsComponent as DemoDiscounts
 } from './components/discounts/discounts';
 
 declare global {
-  interface HTMLMyDiscountsElement extends MyDiscounts, HTMLElement {
+  interface HTMLDemoDiscountsElement extends DemoDiscounts, HTMLElement {
   }
-  var HTMLMyDiscountsElement: {
-    prototype: HTMLMyDiscountsElement;
-    new (): HTMLMyDiscountsElement;
+  var HTMLDemoDiscountsElement: {
+    prototype: HTMLDemoDiscountsElement;
+    new (): HTMLDemoDiscountsElement;
   };
   interface HTMLElementTagNameMap {
-    "my-discounts": HTMLMyDiscountsElement;
+    "demo-discounts": HTMLDemoDiscountsElement;
   }
   interface ElementTagNameMap {
-    "my-discounts": HTMLMyDiscountsElement;
+    "demo-discounts": HTMLDemoDiscountsElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-discounts": JSXElements.MyDiscountsAttributes;
+      "demo-discounts": JSXElements.DemoDiscountsAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyDiscountsAttributes extends HTMLAttributes {
-
+    export interface DemoDiscountsAttributes extends HTMLAttributes {
+      
     }
   }
 }
 
 
 import {
-  ItemBasketComponent as ItemBasket
+  ItemBasketComponent as DemoItemBasket
 } from './components/item-basket/item-basket';
 
 declare global {
-  interface HTMLItemBasketElement extends ItemBasket, HTMLElement {
+  interface HTMLDemoItemBasketElement extends DemoItemBasket, HTMLElement {
   }
-  var HTMLItemBasketElement: {
-    prototype: HTMLItemBasketElement;
-    new (): HTMLItemBasketElement;
+  var HTMLDemoItemBasketElement: {
+    prototype: HTMLDemoItemBasketElement;
+    new (): HTMLDemoItemBasketElement;
   };
   interface HTMLElementTagNameMap {
-    "item-basket": HTMLItemBasketElement;
+    "demo-item-basket": HTMLDemoItemBasketElement;
   }
   interface ElementTagNameMap {
-    "item-basket": HTMLItemBasketElement;
+    "demo-item-basket": HTMLDemoItemBasketElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "item-basket": JSXElements.ItemBasketAttributes;
+      "demo-item-basket": JSXElements.DemoItemBasketAttributes;
     }
   }
   namespace JSXElements {
-    export interface ItemBasketAttributes extends HTMLAttributes {
+    export interface DemoItemBasketAttributes extends HTMLAttributes {
       items?: Item[];
     }
   }
@@ -132,59 +132,59 @@ declare global {
 
 
 import {
-  ItemFilterComponent as ItemFilter
+  ItemFilterComponent as DemoItemFilter
 } from './components/item-filter/item-filter';
 
 declare global {
-  interface HTMLItemFilterElement extends ItemFilter, HTMLElement {
+  interface HTMLDemoItemFilterElement extends DemoItemFilter, HTMLElement {
   }
-  var HTMLItemFilterElement: {
-    prototype: HTMLItemFilterElement;
-    new (): HTMLItemFilterElement;
+  var HTMLDemoItemFilterElement: {
+    prototype: HTMLDemoItemFilterElement;
+    new (): HTMLDemoItemFilterElement;
   };
   interface HTMLElementTagNameMap {
-    "item-filter": HTMLItemFilterElement;
+    "demo-item-filter": HTMLDemoItemFilterElement;
   }
   interface ElementTagNameMap {
-    "item-filter": HTMLItemFilterElement;
+    "demo-item-filter": HTMLDemoItemFilterElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "item-filter": JSXElements.ItemFilterAttributes;
+      "demo-item-filter": JSXElements.DemoItemFilterAttributes;
     }
   }
   namespace JSXElements {
-    export interface ItemFilterAttributes extends HTMLAttributes {
-
+    export interface DemoItemFilterAttributes extends HTMLAttributes {
+      
     }
   }
 }
 
 
 import {
-  ItemOverviewComponent as ItemOverview
+  ItemOverviewComponent as DemoItemOverview
 } from './components/item-overview/item-overview';
 
 declare global {
-  interface HTMLItemOverviewElement extends ItemOverview, HTMLElement {
+  interface HTMLDemoItemOverviewElement extends DemoItemOverview, HTMLElement {
   }
-  var HTMLItemOverviewElement: {
-    prototype: HTMLItemOverviewElement;
-    new (): HTMLItemOverviewElement;
+  var HTMLDemoItemOverviewElement: {
+    prototype: HTMLDemoItemOverviewElement;
+    new (): HTMLDemoItemOverviewElement;
   };
   interface HTMLElementTagNameMap {
-    "item-overview": HTMLItemOverviewElement;
+    "demo-item-overview": HTMLDemoItemOverviewElement;
   }
   interface ElementTagNameMap {
-    "item-overview": HTMLItemOverviewElement;
+    "demo-item-overview": HTMLDemoItemOverviewElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "item-overview": JSXElements.ItemOverviewAttributes;
+      "demo-item-overview": JSXElements.DemoItemOverviewAttributes;
     }
   }
   namespace JSXElements {
-    export interface ItemOverviewAttributes extends HTMLAttributes {
+    export interface DemoItemOverviewAttributes extends HTMLAttributes {
       items?: Item[];
     }
   }
@@ -192,90 +192,90 @@ declare global {
 
 
 import {
-  MyApp as MyApp
-} from './containers/my-app/my-app';
-
-declare global {
-  interface HTMLMyAppElement extends MyApp, HTMLElement {
-  }
-  var HTMLMyAppElement: {
-    prototype: HTMLMyAppElement;
-    new (): HTMLMyAppElement;
-  };
-  interface HTMLElementTagNameMap {
-    "my-app": HTMLMyAppElement;
-  }
-  interface ElementTagNameMap {
-    "my-app": HTMLMyAppElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      "my-app": JSXElements.MyAppAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MyAppAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-import {
-  AboutComponent as AboutWebshop
+  AboutComponent as DemoAbout
 } from './containers/about/about';
 
 declare global {
-  interface HTMLAboutWebshopElement extends AboutWebshop, HTMLElement {
+  interface HTMLDemoAboutElement extends DemoAbout, HTMLElement {
   }
-  var HTMLAboutWebshopElement: {
-    prototype: HTMLAboutWebshopElement;
-    new (): HTMLAboutWebshopElement;
+  var HTMLDemoAboutElement: {
+    prototype: HTMLDemoAboutElement;
+    new (): HTMLDemoAboutElement;
   };
   interface HTMLElementTagNameMap {
-    "about-webshop": HTMLAboutWebshopElement;
+    "demo-about": HTMLDemoAboutElement;
   }
   interface ElementTagNameMap {
-    "about-webshop": HTMLAboutWebshopElement;
+    "demo-about": HTMLDemoAboutElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "about-webshop": JSXElements.AboutWebshopAttributes;
+      "demo-about": JSXElements.DemoAboutAttributes;
     }
   }
   namespace JSXElements {
-    export interface AboutWebshopAttributes extends HTMLAttributes {
-
+    export interface DemoAboutAttributes extends HTMLAttributes {
+      
     }
   }
 }
 
 
 import {
-  ShoppingListOverview as ShoppingListOverview
-} from './containers/shopping-list-overview/shopping-list-overview';
+  MyApp as DemoApp
+} from './containers/my-app/my-app';
 
 declare global {
-  interface HTMLShoppingListOverviewElement extends ShoppingListOverview, HTMLElement {
+  interface HTMLDemoAppElement extends DemoApp, HTMLElement {
   }
-  var HTMLShoppingListOverviewElement: {
-    prototype: HTMLShoppingListOverviewElement;
-    new (): HTMLShoppingListOverviewElement;
+  var HTMLDemoAppElement: {
+    prototype: HTMLDemoAppElement;
+    new (): HTMLDemoAppElement;
   };
   interface HTMLElementTagNameMap {
-    "shopping-list-overview": HTMLShoppingListOverviewElement;
+    "demo-app": HTMLDemoAppElement;
   }
   interface ElementTagNameMap {
-    "shopping-list-overview": HTMLShoppingListOverviewElement;
+    "demo-app": HTMLDemoAppElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "shopping-list-overview": JSXElements.ShoppingListOverviewAttributes;
+      "demo-app": JSXElements.DemoAppAttributes;
     }
   }
   namespace JSXElements {
-    export interface ShoppingListOverviewAttributes extends HTMLAttributes {
+    export interface DemoAppAttributes extends HTMLAttributes {
+      
+    }
+  }
+}
 
+
+import {
+  ShoppingListOverview as DemoShoppingListOverview
+} from './containers/shopping-list-overview/shopping-list-overview';
+
+declare global {
+  interface HTMLDemoShoppingListOverviewElement extends DemoShoppingListOverview, HTMLElement {
+  }
+  var HTMLDemoShoppingListOverviewElement: {
+    prototype: HTMLDemoShoppingListOverviewElement;
+    new (): HTMLDemoShoppingListOverviewElement;
+  };
+  interface HTMLElementTagNameMap {
+    "demo-shopping-list-overview": HTMLDemoShoppingListOverviewElement;
+  }
+  interface ElementTagNameMap {
+    "demo-shopping-list-overview": HTMLDemoShoppingListOverviewElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "demo-shopping-list-overview": JSXElements.DemoShoppingListOverviewAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface DemoShoppingListOverviewAttributes extends HTMLAttributes {
+      
     }
   }
 }
