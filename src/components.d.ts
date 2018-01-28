@@ -35,7 +35,7 @@ declare global {
   namespace JSXElements {
     export interface BasketOverviewAttributes extends HTMLAttributes {
       nrOfElements?: number;
-      totalPrice?: number;
+      totalPrice?: string;
     }
   }
 }

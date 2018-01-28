@@ -21,7 +21,7 @@ export const callWalmartApi = (term, page, priceFrom, priceTo) =>
 export class ShoppingListOverview {
   @State() items: Item[] = [];
   @State() basketItems: Item[];
-  @State() totalPrice: number;
+  @State() totalPrice: string;
   @State() nrOfElements: number;
   @Prop({context: 'basketService'}) basketService: BasketService;
 
@@ -99,7 +99,7 @@ export class ShoppingListOverview {
     if(this.discounts.vatFree) {
       basketPrice = basketPrice / 1.21;
     }
-    this.totalPrice = basketPrice - this.discounts.discountCode;
+    this.totalPrice = (basketPrice - this.discounts.discountCode).toFixed(2);
   }
 
   calculateNumberOfElements() {
