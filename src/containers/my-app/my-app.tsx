@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   tag: 'demo-app',
   styleUrl: 'my-app.scss'
 })
-export class MyApp {
+export class DemoApp {
   render() {
     return (
       <div>

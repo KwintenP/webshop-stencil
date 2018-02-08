@@ -222,7 +222,7 @@ declare global {
 
 
 import {
-  MyApp as DemoApp
+  DemoApp as DemoApp
 } from './containers/my-app/my-app';
 
 declare global {
@@ -280,3 +280,4 @@ declare global {
   }
 }
 
+declare global { namespace JSX { interface StencilJSX {} } }
