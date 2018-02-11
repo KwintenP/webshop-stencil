@@ -13,6 +13,8 @@ export class DemoApp {
       <div>
         <header>
           <h1>StencilJS example webshop</h1>
+          <a class="menu" href="/">Main</a>
+          <a class="menu" href="/about">About</a>
         </header>
 
         <main>
@@ -20,6 +22,11 @@ export class DemoApp {
             <stencil-route
               url="/"
               component="demo-shopping-list-overview"
+              exact={true}
+            />
+            <stencil-route
+              url="/about"
+              component="demo-about"
               exact={true}
             />
           </stencil-router>
